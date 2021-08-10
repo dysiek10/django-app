@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 
@@ -29,10 +30,26 @@ def detail(request, question_id):
 
 def results(request, question_id):
     response = f"You're looking at the results of question %s."
+=======
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse("String")
+
+
+def detail(request, question_id, task_id):
+    return HttpResponse("You're looking at question %s." % question_id)
+
+
+def results(request, question_id):
+    response = "You're looking at the results of question %s."
+>>>>>>> 594c981aaeaa34f90cd490c4394176766ef1591e
     return HttpResponse(response % question_id)
 
 
 def vote(request, question_id):
+<<<<<<< HEAD
     question = get_object_or_404(Question, pk=question_id)
     print(question)
     print("POST: ", request.POST)
@@ -55,3 +72,6 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+=======
+    return HttpResponse("You're voting on question %s." % question_id)
+>>>>>>> 594c981aaeaa34f90cd490c4394176766ef1591e
